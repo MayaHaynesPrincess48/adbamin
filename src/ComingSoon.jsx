@@ -4,7 +4,6 @@ const ComingSoon = () => {
   return (
     <div className="grid h-screen place-items-center bg-gradient-to-br from-black to-gray-900 p-10 text-gray-300">
       <motion.h1
-        initial={{ opacity: 0 }}
         animate={{ transform: "scale(1.0)", opacity: 1 }}
         transition={{ duration: 2 }}
         className="animate-pulse text-center text-4xl sm:text-5xl md:text-6xl lg:text-8xl"
@@ -15,7 +14,6 @@ const ComingSoon = () => {
         </span>
       </motion.h1>
       <motion.p
-        initial={{ opacity: 0 }}
         animate={{ transform: "scale(1.0)", opacity: 1 }}
         transition={{ duration: 2 }}
         className="animate-pulse text-center text-lg sm:text-xl md:text-2xl lg:text-3xl"
@@ -23,7 +21,6 @@ const ComingSoon = () => {
         Coming Soon!
       </motion.p>
       <motion.div
-        initial={{ opacity: 0 }}
         animate={{
           rotate: 360,
           opacity: 1,
@@ -33,7 +30,6 @@ const ComingSoon = () => {
         className="relative h-0 w-0 animate-pulse border-b-[26px] border-l-[15px] border-r-[15px] border-b-gray-300 border-l-transparent border-r-transparent"
       />
       <motion.p
-        initial={{ opacity: 0 }}
         animate={{ transform: "scale(1.0)", opacity: 1 }}
         transition={{ duration: 2 }}
         className="smz:text-xl animate-pulse text-center text-lg italic tracking-tight text-sky-700 md:text-2xl"
