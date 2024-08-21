@@ -1,5 +1,5 @@
-// Run: npx eslint --ext .js,.jsx src
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2020: true,
@@ -12,12 +12,22 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
   ],
-  parserOptions: { ecmaVersion: "latest", sourceType: "module" },
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json", "./tsconfig.app.json"],
+    tsconfigRootDir: __dirname,
+  },
   settings: {
     react: { version: "detect" },
-    "import/resolver": { node: { extensions: [".js", ".jsx"] } },
+    "import/parsers": { "@typescript-eslint/parser": [".ts", ".tsx"] },
+    "import/resolver": {
+      node: { extensions: [".js", ".jsx", ".ts", ".tsx"] },
+    },
   },
   plugins: [
     "react-refresh",
@@ -26,6 +36,7 @@ module.exports = {
     "jsx-a11y",
     "import",
     "prettier",
+    "@typescript-eslint",
   ],
   rules: {
     "react-refresh/only-export-components": "warn",
@@ -34,5 +45,8 @@ module.exports = {
     "react/jsx-uses-react": "off",
     "react/jsx-uses-vars": "off",
     "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
   },
+  ignorePatterns: ["dist", ".eslintrc.cjs"],
 };

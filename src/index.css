@@ -2,6 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  scroll-behavior: smooth;
+@layer base {
+  body {
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+/* Default Button */
+.btn {
+  @apply flex h-[52px] items-center justify-center rounded-full px-6 font-medium transition-colors duration-300;
+}
+
+.btn-hidden {
+  @apply hidden md:flex;
+}
+
+/* Primary Buttons */
+.btn-primary {
+  @apply bg-primary-base text-white hover:bg-primary-60 focus:bg-primary-70 active:bg-primary-80;
+}
+
+.btn-primary-icon-right {
+  @apply btn-primary pl-4 pr-8;
+}
+
+.btn-primary-icon-left {
+  @apply btn-primary pl-8 pr-4;
+}
+
+.btn-primary-outline {
+  @apply border border-primary-base text-primary-base hover:bg-primary-10 focus:bg-primary-10 active:bg-primary-20;
+}
+
+.btn-primary-outline-icon-right {
+  @apply btn-primary-outline pl-4 pr-8;
+}
+
+.btn-primary-outline-icon-left {
+  @apply btn-primary-outline pl-8 pr-4;
+}
+
+/* Secondary Buttons */
+.btn-secondary {
+  @apply bg-secondary-20 text-secondary-80 hover:bg-secondary-30 focus:bg-secondary-30 active:bg-secondary-40;
+}
+
+.btn-secondary-icon-right {
+  @apply btn-secondary pl-4 pr-8;
+}
+
+.btn-secondary-icon-left {
+  @apply btn-secondary pl-8 pr-4;
+}
+
+/* Tertiary Buttons */
+.btn-tertiary {
+  @apply text-primary-60 hover:text-primary-70 focus:text-primary-70 active:text-primary-80;
+}
+
+.btn-tertiary-icon-right {
+  @apply btn-tertiary pl-4 pr-8;
+}
+
+.btn-tertiary-icon-left {
+  @apply btn-tertiary pl-8 pr-4;
 }
