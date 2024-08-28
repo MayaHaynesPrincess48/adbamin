@@ -17,7 +17,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ icon, text, className }) => {
     >
       <div className="flex h-[50px] items-center gap-4 sm:h-[76px]">
         <div>{icon}</div>
-        <div className="text-lg">{text}</div>
+        <div className="text-base md:text-lg">{text}</div>
       </div>
     </div>
   );

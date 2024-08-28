@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import logo from "../assets/Logo-white.svg";
+import logo from "../assets/svg/Logo-white.svg";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { footerInfo, navItems, socialLinks, copyRight } from "../utils/data";
 
-const sharedTextClasses = "text-sm md:text-base font-normal";
-const sharedTitleClasses = "text-sm md:text-base font-semibold text-white";
+const sharedTextClasses = "xs:text-sm text-xs md:text-base font-normal";
+const sharedTitleClasses =
+  "xs:text-sm text-xs md:text-base font-semibold text-white";
 
 const FooterInfoItem = ({
   title,
@@ -79,7 +80,7 @@ const Footer = () => {
           </div>
           <div className="col-span-1">
             <div className="flex flex-col gap-4">
-              <p className={sharedTitleClasses}>Quick Links</p>
+              <p className={`${sharedTitleClasses} mt-[14px]`}>Quick Links</p>
               {navItems.slice(0, 4).map((item) => (
                 <FooterNavLink key={item.name} item={item} />
               ))}

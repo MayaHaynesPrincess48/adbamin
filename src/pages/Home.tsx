@@ -1,9 +1,9 @@
 import Hero from "../components/Hero";
 import SEO from "../components/SEO";
-import landing from "../assets/landing.png";
+import landing from "../assets/images/landing.webp";
 import Services from "../components/Services";
-import UpcomingProject from "../components/UpcomingProject";
 import StatisticsSection from "../components/StatisticsSection";
+import Values from "../components/CompanyValues";
 
 const Home: React.FC = () => {
   return (
@@ -19,12 +19,12 @@ const Home: React.FC = () => {
         subtitle="We are Abdamin, we deliver innovative and creative solutions via strategic partnerships to meet the needs of our customers and to provide an unparalleled level of service."
         backgroundImage={landing}
         link="/about-us"
-        className="min-h-[800px] bg-left sm:bg-center md:min-h-screen"
+        className="h-[100dvh] bg-left sm:bg-center"
         text="Learn More"
       />
       <Services />
       <StatisticsSection />
-      <UpcomingProject />
+      <Values />
     </>
   );
 };

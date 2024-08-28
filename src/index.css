@@ -17,6 +17,10 @@
   @apply hidden md:flex;
 }
 
+.btn-hidden-all {
+  @apply hidden;
+}
+
 /* Primary Buttons */
 .btn-primary {
   @apply bg-primary-base text-white hover:bg-primary-60 focus:bg-primary-70 active:bg-primary-80;

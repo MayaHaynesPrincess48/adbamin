@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import upcoming from "../assets/upcoming.png";
+import upcoming from "../assets/images/upcoming.webp";
 
 const UpcomingProject = () => {
   return (

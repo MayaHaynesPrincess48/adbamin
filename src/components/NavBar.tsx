@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import logo from "../assets/Logo.svg";
+import { NavLink, useLocation } from "react-router-dom";
+import logo from "../assets/svg/Logo.svg";
 import { CloseIcon, MenuIcon } from "./ui/SvgIcons";
 import { navInfo, navItems, socialLinks, copyRight } from "../utils/data";
 import { Building4, Call, Sms } from "iconsax-react";
@@ -14,6 +14,7 @@ const Navbar = () => {
   const { isMenuOpen, setIsMenuOpen } = useMenu();
   const menuRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useClickOutside(menuRef, () => {
     if (isMenuOpen) {
@@ -36,13 +37,19 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [location]);
+
   return (
     <>
       <nav
         className={clsx("sticky top-0 z-50 transition-all duration-300", {
           hidden: isMenuOpen,
           block: !isMenuOpen,
-          "backdrop-blur-lg": !isMenuOpen,
+          "backdrop-blur-lg": isScrolled,
           "bg-neutral-10/50": isScrolled,
         })}
       >

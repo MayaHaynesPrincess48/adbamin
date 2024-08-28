@@ -34,7 +34,7 @@ const ScrollToTopButton = () => {
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <ArrowUp size="32" color="#fff" />
+      <ArrowUp size="20" color="#fff" />
     </button>
   );
 };

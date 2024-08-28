@@ -29,3 +29,22 @@ export type FooterInfo = {
   email: string;
   phone: string;
 };
+
+export type ProjectCategory =
+  | "Construction"
+  | "Transportation"
+  | "Telecoms"
+  | "Consults"
+  | "Solar Generation"
+  | "Gauni Water";
+
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  date: string;
+  service: string;
+  category: ProjectCategory;
+  imageUrl: string;
+}
