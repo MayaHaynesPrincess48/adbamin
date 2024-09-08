@@ -1,6 +1,6 @@
 const Bio = () => {
   return (
-    <section className="mx-auto mt-[-20px] flex max-w-7xl flex-col gap-16 px-4 pb-16 sm:px-6 lg:px-8">
+    <section className="mx-auto mt-[-20px] flex max-w-8xl flex-col gap-16 px-4 pb-16 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-[60px]">
         <div className="flex flex-col justify-start gap-2 md:gap-6">
           <p className="text-sm font-bold uppercase text-[#8094b2] sm:text-base md:text-lg">

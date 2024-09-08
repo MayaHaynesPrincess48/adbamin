@@ -60,7 +60,7 @@ const FooterCopyright = () => (
 const Footer = () => {
   return (
     <footer className="bottom-0 h-full bg-primary-100">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-4">
           <div className="col-span-3">
             <div className="flex flex-col gap-4">

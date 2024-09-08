@@ -40,7 +40,7 @@ const StatisticItem: React.FC<StatisticItemProps> = ({
       ref={ref}
       className={clsx(`flex flex-col items-center gap-4 ${className}`)}
     >
-      <div className="xs:text-3xl text-center text-2xl font-bold leading-none text-blue-950 md:text-4xl">
+      <div className="text-center text-2xl font-bold leading-none text-blue-950 xs:text-3xl md:text-4xl">
         {hasAnimated ? (
           <CountUp
             start={0}
@@ -60,7 +60,7 @@ const StatisticItem: React.FC<StatisticItemProps> = ({
           "0"
         )}
       </div>
-      <div className="xs:text-base text-center text-sm font-medium leading-6 text-slate-500">
+      <div className="text-center text-sm font-medium leading-6 text-slate-500 xs:text-base">
         {label.split("\n").map((line, index) => (
           <React.Fragment key={index}>
             {line}

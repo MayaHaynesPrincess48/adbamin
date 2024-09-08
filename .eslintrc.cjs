@@ -21,6 +21,7 @@ module.exports = {
     sourceType: "module",
     project: ["./tsconfig.json", "./tsconfig.node.json", "./tsconfig.app.json"],
     tsconfigRootDir: __dirname,
+    extraFileExtensions: [".html"],
   },
   settings: {
     react: { version: "detect" },
@@ -35,8 +36,8 @@ module.exports = {
     "react-hooks",
     "jsx-a11y",
     "import",
-    "prettier",
     "@typescript-eslint",
+    "prettier",
   ],
   rules: {
     "react-refresh/only-export-components": "warn",
@@ -48,5 +49,10 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": ["warn"],
     "@typescript-eslint/explicit-module-boundary-types": "off",
   },
-  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  ignorePatterns: [
+    "postcss.config.js",
+    "tailwind.config.js",
+    "*.html",
+    ".eslintrc.cjs",
+  ],
 };

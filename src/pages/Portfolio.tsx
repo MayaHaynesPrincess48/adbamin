@@ -7,8 +7,15 @@ const Porfolio: React.FC = () => {
     <>
       <SEO
         title="Portfolio"
-        description="Explore the diverse portfolio of Abdamin International Limited"
-        keywords={["portfolio", "projects", "services", "Abdamin"]}
+        description="Explore the diverse portfolio of Abdamin International Limited - Our projects and achievements"
+        keywords={[
+          "portfolio",
+          "projects",
+          "services",
+          "Abdamin",
+          "case studies",
+        ]}
+        ogUrl="https://www.abdamin.com/portfolio"
       />
       {/* Portfolio page content */}
       <Hero

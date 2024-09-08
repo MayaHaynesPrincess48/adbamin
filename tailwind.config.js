@@ -6,6 +6,10 @@ export default {
       screens: {
         xs: "480px",
       },
+      maxWidth: {
+        "8xl": "90rem",
+        "9xl": "96rem",
+      },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
       },

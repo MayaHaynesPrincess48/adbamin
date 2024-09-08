@@ -10,8 +10,9 @@ const Home: React.FC = () => {
     <>
       <SEO
         title="Home"
-        description="Welcome to Abdamin International Limited"
-        keywords={["home", "abdamin", "international"]}
+        description="Welcome to Abdamin International Limited - Our Products and Services"
+        keywords={["home", "abdamin", "international", "products", "services"]}
+        ogUrl="https://www.abdamin.com/"
       />
       {/* Home page content */}
       <Hero

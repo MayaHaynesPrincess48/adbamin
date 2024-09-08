@@ -5,7 +5,7 @@ import StatsAndFeatures from "./StatsAndFeatures";
 
 const StatisticsSection: React.FC = () => {
   return (
-    <section className="mx-auto flex max-w-7xl flex-col gap-16 px-4 py-16 sm:px-6 lg:px-8">
+    <section className="mx-auto flex max-w-8xl flex-col gap-16 px-4 py-16 sm:px-6 lg:px-8">
       <HeadingSection
         title="company"
         subtitle="Our Legacy of Excellence"

@@ -39,7 +39,7 @@ const ScrollToBottomButton = () => {
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <ArrowDown2 size="48" color="#D02A10" className="animate-bounce" />
+      <ArrowDown2 size="40" color="#D02A10" className="animate-bounce" />
     </button>
   );
 };

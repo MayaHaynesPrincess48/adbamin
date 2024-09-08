@@ -11,8 +11,9 @@ const AboutUs: React.FC = () => {
     <>
       <SEO
         title="About Us"
-        description="Learn more about Abdamin International Limited"
-        keywords={["about", "company", "history"]}
+        description="Learn more about Abdamin International Limited - Our history, mission, and values"
+        keywords={["about", "company", "history", "mission", "values"]}
+        ogUrl="https://www.abdamin.com/about"
       />
       {/* About Us page content */}
       <Hero

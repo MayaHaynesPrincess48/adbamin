@@ -41,7 +41,7 @@ const Navbar = () => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
-  }, [location]);
+  }, [isMenuOpen, location, setIsMenuOpen]);
 
   return (
     <>
@@ -53,7 +53,7 @@ const Navbar = () => {
           "bg-neutral-10/50": isScrolled,
         })}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-8xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <NavLink to="/">
             <img
               src={logo}

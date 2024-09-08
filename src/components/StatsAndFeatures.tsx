@@ -40,7 +40,7 @@ const StatsAndFeatures: React.FC = () => {
 
   return (
     <>
-      <div className="xs:gap-2 mx-auto grid grid-cols-5 sm:gap-4 md:gap-10 lg:max-w-[950px] lg:grid-cols-9 lg:gap-0">
+      <div className="mx-auto grid grid-cols-5 xs:gap-2 sm:gap-4 md:gap-10 lg:max-w-[950px] lg:grid-cols-9 lg:gap-0">
         {statistics.map((stat, index) => (
           <React.Fragment key={index}>
             <StatisticItem

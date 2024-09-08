@@ -5,6 +5,7 @@ import { MenuProvider } from "./context/MenuContext";
 import AboutUs from "./pages/AboutUs";
 import Portfolio from "./pages/Portfolio";
 import ServicesPage from "./pages/ServicesPage";
+import GetInTouch from "./pages/GetInTouch";
 // import Construction from "./pages/Construction";
 // import Transportation from "./pages/Transportation";
 // import Telecoms from "./pages/Telecoms";
@@ -28,6 +29,7 @@ const routes: routes[] = [
   // { path: "/services/consults", element: <Consults /> },
   // { path: "/services/solar-generation", element: <SolarGeneration /> },
   // { path: "/services/gauni-water", element: <GauniWater /> },
+  { path: "/get-in-touch", element: <GetInTouch /> },
 ];
 
 const Router = () => {

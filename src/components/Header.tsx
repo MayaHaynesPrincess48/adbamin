@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   return (
-    <header className="mx-auto hidden h-[52px] max-w-7xl items-center justify-between bg-white px-4 py-[16px] font-medium text-primary-base sm:px-6 md:flex lg:px-8">
+    <header className="mx-auto hidden h-[52px] max-w-8xl items-center justify-between bg-white px-4 py-[16px] font-medium text-primary-base sm:px-6 md:flex lg:px-8">
       <div className="flex items-center justify-center gap-[24px] text-sm">
         <div className="flex items-center justify-center gap-2">
           <Sms size="16" variant="Bold" />

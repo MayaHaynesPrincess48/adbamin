@@ -5,6 +5,7 @@ import clsx from "clsx";
 type HeroProps = {
   title: string;
   subtitle?: string;
+  subtitleClassName?: string;
   backgroundImage: string;
   link?: string;
   className?: string;
@@ -25,7 +26,7 @@ const Hero = ({ title, ...props }: HeroProps) => {
           backgroundImage: `url(${props.backgroundImage})`,
         }}
       >
-        <div className="relative mx-auto flex max-w-7xl flex-col gap-6 px-4 py-32 sm:gap-8 sm:px-6 sm:py-36 md:py-40 lg:px-8">
+        <div className="relative mx-auto flex max-w-8xl flex-col gap-6 px-4 py-32 sm:gap-8 sm:px-6 sm:py-36 md:py-40 lg:px-8">
           <h1
             className={clsx(
               "text-3xl font-bold tracking-wide sm:text-4xl lg:text-6xl",
@@ -34,7 +35,14 @@ const Hero = ({ title, ...props }: HeroProps) => {
           >
             {title}
           </h1>
-          <p className="text-md max-w-5xl md:text-xl">{props.subtitle}</p>
+          <p
+            className={clsx(
+              "text-md max-w-5xl md:text-xl",
+              props.subtitleClassName,
+            )}
+          >
+            {props.subtitle}
+          </p>
           <NavLink
             className={clsx(props.linkClassName, "btn btn-primary w-fit")}
             to={props.link ?? ""}

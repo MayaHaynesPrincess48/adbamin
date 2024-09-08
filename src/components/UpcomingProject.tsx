@@ -3,7 +3,7 @@ import upcoming from "../assets/images/upcoming.webp";
 
 const UpcomingProject = () => {
   return (
-    <div className="relative mx-auto max-w-7xl px-4 py-[80px] sm:px-6 md:py-[100px] lg:px-8">
+    <div className="relative mx-auto max-w-8xl px-4 py-[80px] sm:px-6 md:py-[100px] lg:px-8">
       <div
         className="flex w-full rounded-xl bg-neutral-base bg-cover bg-center px-4 py-[48px] md:px-[64px] md:py-[72px]"
         style={{ backgroundImage: `url(${upcoming})` }}

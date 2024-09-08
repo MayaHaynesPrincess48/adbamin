@@ -9,8 +9,15 @@ const ServicesPage: React.FC = () => {
     <>
       <SEO
         title="Services"
-        description="Discover the wide range of services offered by Abdamin International Limited"
-        keywords={["services", "solutions", "Abdamin"]}
+        description="Discover the wide range of services offered by Abdamin International Limited - Tailored solutions for your needs"
+        keywords={[
+          "services",
+          "solutions",
+          "Abdamin",
+          "offerings",
+          "expertise",
+        ]}
+        ogUrl="https://www.abdamin.com/services"
       />
       {/* Services page content */}
       <Hero
