@@ -9,7 +9,7 @@ function App(): JSX.Element {
 
   // Effect to simulate an initial loading period
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 500); // 3 seconds loading time
+    const timer = setTimeout(() => setLoading(false), 3000); // 3 seconds loading time
     return () => clearTimeout(timer); // Cleanup timer on unmount
   }, []);
 
