@@ -5,7 +5,7 @@ const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    if (window.scrollY > window.innerHeight / 2.5) {
+    if (window.scrollY > window.innerHeight) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -20,9 +20,16 @@ const ScrollToTopButton = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    const handleScroll = () => {
+      // Debounce the scroll event
+      setTimeout(() => {
+        toggleVisibility();
+      }, 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -30,9 +37,10 @@ const ScrollToTopButton = () => {
     <button
       type="button"
       onClick={scrollToTop}
-      className={`fixed bottom-4 right-4 rounded-full bg-primary-base p-3 text-white shadow-lg transition-all duration-300 hover:bg-primary-60 ${
-        isVisible ? "opacity-100" : "opacity-0"
+      className={`fixed bottom-8 right-4 z-50 rounded-full bg-primary-base p-2 text-white shadow-lg transition-all duration-300 hover:bg-primary-60 sm:p-3 ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
       }`}
+      aria-label="Scroll to top"
     >
       <ArrowUp size="20" color="#fff" />
     </button>

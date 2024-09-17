@@ -67,27 +67,38 @@ export const navItems: NavItem[] = [
   { name: "Home", link: "/" },
   { name: "About Us", link: "/about-us" },
   { name: "Portfolio", link: "/portfolio" },
-  { name: "Services", link: "/services" },
-  { name: "Get In Touch", link: "/contact-us" },
+  {
+    name: "Services",
+    link: "/services",
+    subItems: [
+      { name: "Construction", link: "/services/construction" },
+      { name: "Transportation", link: "/services/transportation" },
+      { name: "Telecoms", link: "/services/telecoms" },
+      { name: "Consults", link: "/services/consults" },
+      { name: "Solar Generation", link: "/services/solar-generation" },
+      { name: "Gauni Water", link: "/services/gauni-water" },
+    ],
+  },
+  { name: "Get In Touch", link: "/get-in-touch" },
 ];
 
 export const socialLinks: SocialLink[] = [
   {
     label: "LinkedIn",
     icon: faLinkedinIn,
-    url: "https://www.linkedin.com/company/abdamin",
+    url: "#",
   },
   {
     label: "Instagram",
     icon: faInstagram,
-    url: "https://www.instagram.com/abdamin",
+    url: "#",
   },
   {
     label: "Facebook",
     icon: faFacebook,
-    url: "https://www.facebook.com/abdamin",
+    url: "#",
   },
-  { label: "Twitter", icon: faXTwitter, url: "https://twitter.com/abdamin" },
+  { label: "Twitter", icon: faXTwitter, url: "#" },
 ];
 
 export const copyRight = `© ${new Date().getFullYear()}. Abdamin International Limited.`;

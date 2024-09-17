@@ -16,6 +16,7 @@ export type NavInfo = {
 export type NavItem = {
   name: string;
   link: string;
+  subItems?: { name: string; link: string }[];
 };
 
 export type SocialLink = {

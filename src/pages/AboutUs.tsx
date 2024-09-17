@@ -1,10 +1,11 @@
-import SEO from "../components/SEO";
+import SEO from "../components/layout/SEO";
 import aboutUs from "../assets/images/About-us.webp";
-import Hero from "../components/Hero";
-import Bio from "../components/Bio";
-import Mission from "../components/Mission";
-import StatsAndFeatures from "../components/StatsAndFeatures";
-import CompanyValues from "../components/CompanyValues";
+import Hero from "../components/layout/Hero";
+import Bio from "../components/common/Bio";
+import Mission from "../components/common/CompanyOverview";
+import StatsAndFeatures from "../components/common/StatsAndFeatures";
+import CompanyValues from "../components/common/CompanyValues";
+import AnimatedSection from "@/components/layout/AnimatedSection";
 
 const AboutUs: React.FC = () => {
   return (
@@ -23,12 +24,18 @@ const AboutUs: React.FC = () => {
         linkClassName="btn-hidden-all"
         className="h-[540px] bg-cover md:h-[650px]"
       />
-      <Bio />
-      <Mission />
-      <section className="mx-auto flex max-w-7xl flex-col gap-16 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <AnimatedSection>
+        <Bio />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Mission />
+      </AnimatedSection>
+      <AnimatedSection className="mx-auto flex max-w-8xl flex-col gap-16 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
         <StatsAndFeatures />
-      </section>
-      <CompanyValues />
+      </AnimatedSection>
+      <AnimatedSection>
+        <CompanyValues />
+      </AnimatedSection>
     </>
   );
 };

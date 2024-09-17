@@ -35,7 +35,7 @@ const ScrollToBottomButton = () => {
     <button
       type="button"
       onClick={scrollToNextViewport}
-      className={`fixed bottom-4 left-1/2 -translate-x-1/2 transform rounded-full p-3 text-white shadow-lg transition-all duration-300 ${
+      className={`fixed bottom-4 left-1/2 -translate-x-1/2 transform rounded-full p-3 text-white transition-all duration-300 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
