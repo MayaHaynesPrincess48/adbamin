@@ -47,7 +47,7 @@ const Portfolio: React.FC = () => {
         titleClassName="mt-[85px] md:mt-[110px]"
         backgroundImage={portfolio}
         linkClassName="btn-hidden-all"
-        className="h-[540px] bg-cover md:h-[650px]"
+        className="h-[540px] bg-cover bg-right md:h-[650px]"
       />
       <AnimatedSection>
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

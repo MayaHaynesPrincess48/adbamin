@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import ScrollToBottomButton from "../ui/ScrollToBottom";
 import clsx from "clsx";
 import AnimatedSection from "./AnimatedSection";
+import { useState, useEffect } from "react";
 
 type HeroProps = {
   title?: string;
@@ -16,17 +17,31 @@ type HeroProps = {
 };
 
 const Hero = ({ title, ...props }: HeroProps) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = props.backgroundImage;
+    img.onload = () => setImageLoaded(true);
+  }, [props.backgroundImage]);
+
   return (
     <AnimatedSection>
       <section
         className={clsx(
           props.className,
           "-translate-y-[85px] bg-cover text-neutral-base md:top-[52px]",
+          "overflow-hidden", // Added to contain the animated placeholder
         )}
         style={{
-          backgroundImage: `url(${props.backgroundImage})`,
+          backgroundImage: imageLoaded
+            ? `url(${props.backgroundImage})`
+            : "none",
         }}
       >
+        {!imageLoaded && (
+          <div className="animate-gradient-x absolute inset-0 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300" />
+        )}
         <div className="relative mx-auto flex max-w-8xl flex-col gap-6 px-4 py-32 sm:px-6 sm:py-36 md:py-40 lg:px-8">
           <h1
             className={clsx(

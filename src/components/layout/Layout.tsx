@@ -10,9 +10,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <ScrollBar position="top" />
-      <AnimatedSection>
-        <Header />
-      </AnimatedSection>
+      {/* <AnimatedSection> */}
+      <Header />
+      {/* </AnimatedSection> */}
       <Navbar />
       <main className="min-h-[calc(100vh-52px)]">{children}</main>
       <AnimatedSection>
@@ -21,9 +21,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <AnimatedSection>
         <Footer />
       </AnimatedSection>
-      <AnimatedSection>
-        <ScrollToTopButton />
-      </AnimatedSection>
+      <ScrollToTopButton />
     </>
   );
 };
