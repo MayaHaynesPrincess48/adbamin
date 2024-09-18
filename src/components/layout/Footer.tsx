@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
                 Designed by
               </span>
               <NavLink
-                to="mailto:koladev100@gmail.com"
+                to="https://www.behance.net/olubummokolawole"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-40 hover:underline"
