@@ -13,7 +13,25 @@ const HomePage: React.FC = () => {
       <SEO
         title="Home"
         description="Abdamin International: Innovative solutions for manufacturing, construction, and industrial projects. Empowering progress through strategic partnerships."
-        keywords={["home", "abdamin", "international", "products", "services"]}
+        keywords={[
+          "home",
+          "abdamin",
+          "international",
+          "limited",
+          "products",
+          "services",
+          "construction",
+          "industrial",
+          "nigeria",
+          "lagos",
+          "abuja",
+          "kaduna",
+          "adamawa",
+          "yola",
+          "solar",
+          "water",
+          "telecoms",
+        ]}
         ogUrl="https://www.abdamin.com/"
       />
       {/* Home page content */}

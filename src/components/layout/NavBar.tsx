@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
             <img
               src={logo}
               alt="Abdamin Logo"
-              className="h-[32px] w-[96px] sm:h-[40px] sm:w-[120px] md:h-[48px] md:w-[148px]"
+              className="h-auto w-28 sm:w-32 md:w-36 lg:w-40"
             />
           </NavLink>
           <div className="hidden items-center gap-10 md:flex lg:gap-16">
@@ -108,7 +108,7 @@ const Navbar: React.FC = () => {
                   <img
                     src={logo}
                     alt="Abdamin Logo"
-                    className="h-[32px] w-[96px] sm:h-[40px] sm:w-[120px] md:h-[48px] md:w-[148px]"
+                    className="h-auto w-28 sm:w-32 md:w-36 lg:w-40"
                   />
                 </NavLink>
                 {isMenuOpen && (

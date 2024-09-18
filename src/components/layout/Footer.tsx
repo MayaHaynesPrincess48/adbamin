@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
               <img
                 src={logo}
                 alt="Abdamin International Limited Logo"
-                className="h-8 w-fit sm:h-10"
+                className="h-auto w-28 sm:w-32 md:w-36 lg:w-40"
               />
               {[
                 {
