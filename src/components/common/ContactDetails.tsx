@@ -29,7 +29,7 @@ const ContactDetails: React.FC<ContactDetailsProps> = ({ className }) => {
         description="We’re always happy to hear from you."
         icon={<Send2 size="28" color="#0A0A0A" />}
         linkText="Shoot us an email"
-        linkHref="mailto:info@abdamin.com"
+        linkHref="mailto:abdaminltd@gmail.com"
       />
       <ContactItem
         title="Visit Us"

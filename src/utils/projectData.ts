@@ -6,6 +6,8 @@ import nigerianArmy2 from "../assets/images/projects/nigerian-army-2.webp";
 export interface Project {
   id: string;
   title: string;
+  seoTitle: string;
+  seoDescription: string;
   description: string;
   location: string;
   date: string;
@@ -23,6 +25,9 @@ export const projects: Project[] = [
     id: "police-secondary-school",
     title:
       "Construction of 1No 6 Classrooms Block (Storey Building) at Nigerian Police Secondary School, Yola, Adamawa State",
+    seoTitle: "Police Classrooms in Yola",
+    seoDescription:
+      "Construction of a 6-classroom storey building to enhance educational facilities at Nigerian Police Secondary School in Yola, Adamawa State.",
     description:
       "The construction project for 1No 6 classrooms block (storey building) at Nigerian Police Secondary School, Yola, is a testament to our commitment to supporting educational infrastructure in Nigeria by providing high-quality, durable, and functional buildings that meet the needs of students and educators.",
     location: "Yola, Adamawa",
@@ -46,6 +51,9 @@ export const projects: Project[] = [
   {
     id: "nigerian-army-bungalow",
     title: "Construction of 2 x 3 Bedroom Bungalow",
+    seoTitle: "Army Bungalows in Dutse",
+    seoDescription:
+      "Construction of two 3-bedroom bungalows for Nigerian Army personnel at Dutse Barracks, enhancing living conditions for military families.",
     description:
       "Abdamin International Limited successfully completed the construction of two 3-bedroom bungalows at the Nigerian Army Barracks in Dutse, Jigawa State. This project was part of a broader initiative to improve the living conditions of military personnel and their families, providing them with comfortable and modern housing within the barracks...",
     location: "Dutse, Jigawa",
@@ -69,6 +77,8 @@ export const projects: Project[] = [
   // {
   //   id: "transport-logistics-hub",
   //   title: "Modern Transport Logistics Hub",
+  //   seoTitle: "Lagos Logistics Hub",
+  //   seoDescription: "State-of-the-art logistics hub in Lagos, improving supply chain efficiency and transportation operations.",
   //   service: "Transportation",
   //   description:
   //     "A state-of-the-art logistics hub designed to streamline transportation operations and improve supply chain efficiency.",
@@ -94,6 +104,8 @@ export const projects: Project[] = [
   // {
   //   id: "telecoms-network-expansion",
   //   title: "Telecoms Network Expansion",
+  //   seoTitle: "Nigeria Telecoms Expansion",
+  //   seoDescription: "Expanding telecommunications networks to underserved areas in Nigeria, enhancing connectivity and access to services.",
   //   service: "Telecoms",
   //   description:
   //     "Expansion of telecommunications networks to reach underserved areas, enhancing connectivity and access to essential services.",

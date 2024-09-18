@@ -38,9 +38,14 @@ const Hero = ({ title, ...props }: HeroProps) => {
             ? `url(${props.backgroundImage})`
             : "none",
         }}
+        role="banner"
+        aria-label="Hero section"
       >
         {!imageLoaded && (
-          <div className="animate-gradient-x absolute inset-0 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300" />
+          <div
+            className="animate-gradient-x absolute inset-0 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300"
+            aria-hidden="true"
+          />
         )}
         <div className="relative mx-auto flex max-w-8xl flex-col gap-6 px-4 py-32 sm:px-6 sm:py-36 md:py-40 lg:px-8">
           <h1
@@ -51,20 +56,25 @@ const Hero = ({ title, ...props }: HeroProps) => {
           >
             {title}
           </h1>
-          <p
-            className={clsx(
-              "text-md max-w-5xl md:text-xl",
-              props.subtitleClassName,
-            )}
-          >
-            {props.subtitle}
-          </p>
-          <NavLink
-            className={clsx(props.linkClassName, "btn btn-primary w-fit")}
-            to={props.link ?? ""}
-          >
-            {props.text}
-          </NavLink>
+          {props.subtitle && (
+            <p
+              className={clsx(
+                "text-md max-w-5xl md:text-xl",
+                props.subtitleClassName,
+              )}
+            >
+              {props.subtitle}
+            </p>
+          )}
+          {props.link && props.text && (
+            <NavLink
+              className={clsx(props.linkClassName, "btn btn-primary w-fit")}
+              to={props.link}
+              aria-label={`${props.text} - Navigate to ${props.link}`}
+            >
+              {props.text}
+            </NavLink>
+          )}
           <ScrollToBottomButton />
         </div>
       </section>

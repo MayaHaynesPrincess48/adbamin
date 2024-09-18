@@ -24,8 +24,8 @@ const ProjectPage: React.FC = () => {
   return (
     <>
       <SEO
-        title={project.title}
-        description={project.description}
+        title={project.seoTitle}
+        description={project.seoDescription}
         keywords={[
           project.service,
           project.location,
@@ -37,7 +37,7 @@ const ProjectPage: React.FC = () => {
       <Hero
         backgroundImage={project.mainImage || ""}
         className="h-[540px] bg-cover md:h-[650px]"
-        titleClassName="mt-[85px] md:mt-[110px]"
+        titleClassName="mt-[85px] md:mt-[110px] hidden"
         linkClassName="btn-hidden-all"
       />
       <section className="bg-gradient-to-b from-gray-100 to-white py-16">

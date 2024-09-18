@@ -27,7 +27,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
     <>
       {/* Hero section with dynamic title and background image */}
       <Hero
-        titleClassName="mt-[85px] md:mt-[110px]"
+        titleClassName="mt-[85px] md:mt-[110px] hidden"
         backgroundImage={heroImage}
         linkClassName="btn-hidden-all"
         className={clsx("h-[540px] bg-cover md:h-[650px]", heroClassName)}

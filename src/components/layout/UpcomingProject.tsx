@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { NavLink } from "react-router-dom";
 import upcoming from "../../assets/images/upcoming.webp";
 
@@ -7,20 +8,17 @@ const UpcomingProject = () => {
       <div
         className="flex w-full rounded-xl bg-neutral-base bg-cover bg-center px-4 py-[48px] md:px-[64px] md:py-[72px]"
         style={{ backgroundImage: `url(${upcoming})` }}
-        aria-hidden="true"
-        role="img"
-        aria-label="Upcoming Project"
       >
         <div className="mx-auto flex max-w-[760px] flex-col items-center justify-center gap-6 rounded-xl">
           <p className="text-center text-base font-bold text-[#8094b2] sm:text-lg">
             REACH OUT
           </p>
-          <p className="text-center text-3xl font-bold leading-tight text-white md:text-[52px]">
+          <h2 className="text-center text-3xl font-bold leading-tight text-white md:text-[52px]">
             Have an Upcoming Project?
-          </p>
-          <p className="text-center text-base font-medium text-neutral-10 sm:text-lg">
+          </h2>
+          <p className="text-center text-sm font-medium text-neutral-10 sm:text-lg">
             Explore how Abdamin can turn your vision into reality with our
-            expertise and dedication to excellence. Let’s build the future
+            expertise and dedication to excellence. Let's build the future
             together!
           </p>
           <NavLink className="btn btn-primary" to="/get-in-touch">

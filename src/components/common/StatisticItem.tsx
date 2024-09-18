@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
@@ -21,6 +21,14 @@ const StatisticItem: React.FC<StatisticItemProps> = ({
     threshold: 0.1,
   });
 
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (inView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [inView, hasAnimated]);
+
   const isPercentage = label.toLowerCase().includes("rate");
   const hasPlus = value.toString().includes("+");
   const numericValue = parseInt(value.toString().replace(/\D/g, ""), 10);
@@ -37,6 +45,9 @@ const StatisticItem: React.FC<StatisticItemProps> = ({
             end={numericValue}
             duration={duration}
             separator=","
+            useEasing={true}
+            useGrouping={true}
+            onEnd={() => console.log("CountUp animation ended")}
           >
             {({ countUpRef }) => (
               <span>
@@ -47,16 +58,11 @@ const StatisticItem: React.FC<StatisticItemProps> = ({
             )}
           </CountUp>
         ) : (
-          value
+          <span>{value}</span>
         )}
       </div>
       <div className="text-center text-sm font-medium leading-6 text-slate-500 xs:text-base">
-        {label.split("\n").map((line, index) => (
-          <React.Fragment key={index}>
-            {line}
-            {index === 0 && <br />}
-          </React.Fragment>
-        ))}
+        {label}
       </div>
     </div>
   );

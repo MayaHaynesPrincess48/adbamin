@@ -12,7 +12,7 @@ const HomePage: React.FC = () => {
     <>
       <SEO
         title="Home"
-        description="Welcome to Abdamin International Limited - Our Products and Services"
+        description="Abdamin International: Innovative solutions for manufacturing, construction, and industrial projects. Empowering progress through strategic partnerships."
         keywords={["home", "abdamin", "international", "products", "services"]}
         ogUrl="https://www.abdamin.com/"
       />
@@ -22,7 +22,7 @@ const HomePage: React.FC = () => {
         subtitle="We are Abdamin, we deliver innovative and creative solutions via strategic partnerships to meet the needs of our customers and to provide an unparalleled level of service."
         backgroundImage={landing}
         link="/about-us"
-        className="h-[100dvh] bg-left sm:bg-center"
+        className="h-[650px] bg-cover bg-left sm:bg-center md:h-[750px] lg:h-[950px] xl:h-[850px]"
         text="Learn More"
       />
       <AnimatedSection>
@@ -31,9 +31,7 @@ const HomePage: React.FC = () => {
       <AnimatedSection>
         <StatisticsSection />
       </AnimatedSection>
-      <AnimatedSection>
-        <CompanyValues />
-      </AnimatedSection>
+      <CompanyValues />
       <AnimatedSection>
         <ProjectHome />
       </AnimatedSection>

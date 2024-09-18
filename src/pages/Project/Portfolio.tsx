@@ -31,7 +31,7 @@ const Portfolio: React.FC = () => {
     <>
       <SEO
         title="Portfolio"
-        description="Explore our extensive portfolio showcasing the breadth of our expertise. From iconic structures to sustainable solutions, all meticulously crafted to perfection."
+        description="Explore our extensive portfolio showcasing the breadth of our expertise. From iconic structures to sustainable solutions, all crafted to perfection."
         keywords={[
           "portfolio",
           "projects",

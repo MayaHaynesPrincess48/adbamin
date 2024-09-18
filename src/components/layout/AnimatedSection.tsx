@@ -5,11 +5,15 @@ import { useAnimateOnView } from "../../hooks/useAnimateOnView";
 interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
+  role?: React.AriaRole;
+  ariaLabel?: string;
 }
 
 const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   children,
   className,
+  role = "region",
+  ariaLabel,
 }) => {
   // Use our custom hook to get the ref and animation controls
   const { ref, controls } = useAnimateOnView();
@@ -28,6 +32,8 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
       variants={variants}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={className}
+      role={role}
+      aria-label={ariaLabel}
     >
       {children}
     </motion.section>
