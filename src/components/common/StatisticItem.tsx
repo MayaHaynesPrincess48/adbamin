@@ -35,6 +35,8 @@ const StatisticItem: React.FC<StatisticItemProps> = ({
             end={numericValue}
             duration={duration}
             separator=","
+            enableScrollSpy={true}
+            delay={0}
           >
             {({ countUpRef }) => (
               <span>
