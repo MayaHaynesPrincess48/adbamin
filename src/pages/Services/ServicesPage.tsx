@@ -22,7 +22,7 @@ const ServicesPage: React.FC = () => {
       {/* Services page content */}
       <Hero
         title="Our Services"
-        titleClassName="mt-[85px] md:mt-[110px] hidden"
+        titleClassName="mt-[85px] md:mt-[110px]"
         backgroundImage={servicesImage}
         linkClassName="btn-hidden-all"
         className="h-[540px] bg-cover bg-center md:h-[650px]"

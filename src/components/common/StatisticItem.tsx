@@ -16,16 +16,18 @@ const StatisticItem: React.FC<StatisticItemProps> = ({
   className,
   duration = 2.5,
 }) => {
+  const [hasAnimated, setHasAnimated] = useState(false);
   const { ref, inView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.1,
   });
-
-  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     if (inView && !hasAnimated) {
       setHasAnimated(true);
+      // Optional: Reset animation after 5 minutes
+      // const timer = setTimeout(() => setHasAnimated(false), 5 * 60 * 1000);
+      // return () => clearTimeout(timer);
     }
   }, [inView, hasAnimated]);
 
@@ -39,15 +41,12 @@ const StatisticItem: React.FC<StatisticItemProps> = ({
       className={clsx(`flex flex-col items-center gap-4 ${className}`)}
     >
       <div className="text-center text-2xl font-bold leading-none text-blue-950 xs:text-3xl md:text-4xl">
-        {inView ? (
+        {hasAnimated ? (
           <CountUp
             start={0}
             end={numericValue}
             duration={duration}
             separator=","
-            useEasing={true}
-            useGrouping={true}
-            onEnd={() => console.log("CountUp animation ended")}
           >
             {({ countUpRef }) => (
               <span>
@@ -58,11 +57,16 @@ const StatisticItem: React.FC<StatisticItemProps> = ({
             )}
           </CountUp>
         ) : (
-          <span>{value}</span>
+          "0"
         )}
       </div>
       <div className="text-center text-sm font-medium leading-6 text-slate-500 xs:text-base">
-        {label}
+        {label.split("\n").map((line, index) => (
+          <React.Fragment key={index}>
+            {line}
+            {index === 0 && <br />}
+          </React.Fragment>
+        ))}
       </div>
     </div>
   );
