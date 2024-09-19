@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import logo from "../../assets/svg/Logo.svg";
+import logoWebp from "../../assets/images/Logo.webp";
+import logoFallback from "../../assets/svg/Logo.svg";
 import { CloseIcon, MenuIcon } from "../../components/ui/SvgIcons";
 import { navItems, socialLinks, copyRight, navInfo } from "../../utils/data";
 import { Building4, Call, Sms } from "iconsax-react";
@@ -50,14 +51,20 @@ const Navbar: React.FC = () => {
       >
         <div className="mx-auto flex max-w-8xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <NavLink to="/">
-            <img
-              src={logo}
-              alt="Abdamin Logo"
-              width="160"
-              height="40"
-              className="h-auto w-28 sm:w-32 md:w-36 lg:w-40"
-              srcSet={`${logo} 1x, ${logo} 2x`}
-            />
+            <picture>
+              <source
+                srcSet={`${logoWebp} 1x, ${logoWebp} 2x`}
+                type="image/webp"
+              />
+              <img
+                src={logoFallback}
+                alt="Abdamin Logo"
+                width="160"
+                height="40"
+                className="h-auto w-28 sm:w-32 md:w-36 lg:w-40"
+                srcSet={`${logoFallback} 1x, ${logoFallback} 2x`}
+              />
+            </picture>
           </NavLink>
           <div className="hidden items-center gap-10 md:flex lg:gap-16">
             {navItems.slice(0, -1).map((item) => (
@@ -108,15 +115,21 @@ const Navbar: React.FC = () => {
             >
               <div className="flex items-center justify-between">
                 <NavLink to="/">
-                  <img
-                    src={logo}
-                    alt="Abdamin Logo"
-                    width="160"
-                    height="40"
-                    className="h-auto w-28 sm:w-32 md:w-36 lg:w-40"
-                    loading="lazy"
-                    srcSet={`${logo} 1x, ${logo} 2x`}
-                  />
+                  <picture>
+                    <source
+                      srcSet={`${logoWebp} 1x, ${logoWebp} 2x`}
+                      type="image/webp"
+                    />
+                    <img
+                      src={logoFallback}
+                      alt="Abdamin Logo"
+                      width="160"
+                      height="40"
+                      className="h-auto w-28 sm:w-32 md:w-36 lg:w-40"
+                      loading="lazy"
+                      srcSet={`${logoFallback} 1x, ${logoFallback} 2x`}
+                    />
+                  </picture>
                 </NavLink>
                 {isMenuOpen && (
                   <CloseIcon onClick={() => setIsMenuOpen(!isMenuOpen)} />
