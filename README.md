@@ -61,6 +61,7 @@ We're committed to building strong partnerships. Let's explore how Abdamin can e
 
 Our strategic presence across Nigeria ensures efficient service delivery:
 
+- 🌄 Adamawa
 - 🏙️ Abuja
 - 🌆 Kaduna
 - 🌇 Lagos
