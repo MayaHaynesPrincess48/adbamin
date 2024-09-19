@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../../assets/svg/Logo-white.svg";
+import logoWebp from "../../assets/images/Logo-white.webp";
+import logoFallback from "../../assets/svg/Logo-white.svg";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Palette, Code } from "lucide-react";
@@ -19,11 +20,21 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 gap-8 py-8 sm:grid-cols-4">
           <div className="col-span-3">
             <div className="flex flex-col gap-4">
-              <img
-                src={logo}
-                alt="Abdamin International Limited Logo"
-                className="h-auto w-28 sm:w-32 md:w-36 lg:w-40"
-              />
+              <picture>
+                <source
+                  srcSet={`${logoWebp} 1x, ${logoWebp} 2x`}
+                  type="image/webp"
+                />
+                <img
+                  src={logoFallback}
+                  alt="Abdamin International Limited Logo"
+                  width="160"
+                  height="40"
+                  className="h-auto w-28 sm:w-32 md:w-36 lg:w-40"
+                  srcSet={`${logoFallback} 1x, ${logoFallback} 2x`}
+                  loading="lazy"
+                />
+              </picture>
               {[
                 {
                   title: "Email address",
