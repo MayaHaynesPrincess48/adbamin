@@ -15,7 +15,7 @@
 
 ## About Us
 
-Since 2000, Abdamin International Limited has been at the forefront of Nigeria's multi-sector development. Our digital presence, powered by cutting-edge web technologies, mirrors our dedication to excellence and innovation across Construction, Transportation, Telecoms, Consulting, and Solar Generation sectors.
+Since 2000, Abdamin International Limited has been at the forefront of Nigeria's multi-sector development. Our digital presence, powered by cutting-edge web technologies, mirrors our dedication to excellence and innovation across Construction, Transportation, Telecoms, Consulting, Solar Generation, and Water Services sectors.
 
 ## Our Digital Showcase
 
@@ -36,6 +36,7 @@ This web application serves as our digital portfolio, offering an immersive expe
 - 📡 **Telecoms**: Advancing communication for a connected world
 - 💼 **Consulting**: Expert insights driving business growth
 - ☀️ **Solar Generation**: Pioneering sustainable energy solutions
+- 💧 **Gauni Water**: Providing essential water services for communities
 
 ## Technology Stack
 
