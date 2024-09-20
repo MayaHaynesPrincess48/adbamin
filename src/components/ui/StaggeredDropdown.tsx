@@ -40,7 +40,7 @@ const StaggeredDropDown = () => {
         </NavLink>
         <button
           onClick={() => setOpen((pv) => !pv)}
-          className="ml-2 flex items-center gap-2 rounded-md bg-primary-base px-2 py-1 text-white transition-colors duration-300 hover:text-neutral-10"
+          className="flex items-center gap-2 rounded-full bg-primary-base px-2 py-1 text-white transition-colors duration-300 hover:text-neutral-10"
         >
           <motion.span
             variants={iconVariants}
