@@ -27,7 +27,7 @@ const StatisticsList: React.FC = () => {
             className={clsx({
               "col-span-2 text-center lg:col-span-1": index >= 3,
             })}
-            duration={index === 2 ? 4 : 2.5}
+            duration={index === 2 ? 6 : 4}
           />
           {index < statistics.length - 1 && (
             <div

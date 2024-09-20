@@ -40,16 +40,16 @@ const ProjectPage: React.FC = () => {
         titleClassName="mt-[85px] md:mt-[110px] hidden"
         linkClassName="btn-hidden-all"
       />
-      <section className="bg-gradient-to-b from-gray-100 to-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-7xl">
-            <ProjectDetailsSection project={project} />
-          </div>
+      {/* <section className="bg-gradient-to-b from-gray-100 to-white py-16"> */}
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-7xl">
+          <ProjectDetailsSection project={project} />
         </div>
-      </section>
+      </div>
+      {/* </section> */}
       <section className="pt-16">
         <div className="container mx-auto px-4">
-          <h2 className="mb-10 text-center text-3xl font-bold text-primary-base">
+          <h2 className="mb-8 text-center text-2xl font-bold text-primary-base md:mb-10 md:text-3xl">
             Project Gallery
           </h2>
           <Carousel className="mx-auto w-full max-w-6xl">
