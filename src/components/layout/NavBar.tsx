@@ -42,8 +42,6 @@ const Navbar: React.FC = () => {
     <>
       <nav
         className={clsx("sticky top-0 z-40 transition-all duration-300", {
-          hidden: isMenuOpen,
-          block: !isMenuOpen,
           "backdrop-blur-lg": isScrolled,
           "bg-neutral-10/50": isScrolled,
         })}
@@ -89,7 +87,10 @@ const Navbar: React.FC = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="md:hidden"
+            className={clsx("md:hidden", {
+              hidden: isMenuOpen,
+              block: !isMenuOpen,
+            })}
           >
             {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>

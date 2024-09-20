@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Dispatch, SetStateAction, useState, useRef } from "react";
 import { IconType } from "react-icons";
 import { NavLink } from "react-router-dom";
-import useClickOutside from "@/hooks/useClickOutside";
+import useClickOutside from "../../hooks/useClickOutside";
 
 const StaggeredDropDown = () => {
   const [open, setOpen] = useState(false);
@@ -60,7 +60,7 @@ const StaggeredDropDown = () => {
             exit="closed"
             variants={wrapperVariants}
             style={{ originY: "top", translateX: "-50%" }}
-            className="absolute left-[150%] top-[120%] flex w-48 flex-col gap-2 overflow-hidden rounded-lg bg-white/90 p-2 shadow-xl backdrop-blur-lg"
+            className="absolute left-[35%] top-[120%] flex w-48 flex-col gap-2 overflow-hidden rounded-lg bg-white p-2 shadow-xl lg:left-[80%]"
           >
             <Option
               setOpen={setOpen}
