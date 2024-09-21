@@ -132,7 +132,7 @@ const MobileMenu = ({
                                     <NavLink
                                       to={service.link}
                                       className={({ isActive }) =>
-                                        `flex items-center py-2 ${
+                                        `flex items-center py-2 text-sm ${
                                           isActive
                                             ? "font-bold text-secondary-base"
                                             : "text-primary-base duration-300 hover:text-secondary-base"
