@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom"; // Import useLocation if using React Router
+import staticOgImage from "../../assets/images/og-image.webp";
 
 interface SEOProps {
   title?: string;
@@ -36,9 +37,6 @@ const SEO = ({
       ? defaultUrlWithWww
       : defaultUrl);
 
-  // Static OG image URL
-  const staticOgImageUrl = `${defaultUrl}images/og-image.webp`;
-
   return (
     <Helmet>
       {/* Primary Meta Tags */}
@@ -61,7 +59,7 @@ const SEO = ({
       <meta property="og:url" content={currentUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={staticOgImageUrl} />
+      <meta property="og:image" content={staticOgImage} />
       <meta property="og:image:alt" content={description} />
 
       {/* Twitter */}
@@ -69,7 +67,7 @@ const SEO = ({
       <meta property="twitter:url" content={currentUrl} />
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={staticOgImageUrl} />
+      <meta property="twitter:image" content={staticOgImage} />
       <meta property="twitter:image:alt" content={description} />
     </Helmet>
   );
