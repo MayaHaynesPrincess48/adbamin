@@ -11,7 +11,6 @@ const HomePage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Home"
         description="Abdamin International: Innovative solutions for manufacturing, construction, and industrial projects. Empowering progress through strategic partnerships."
         keywords={[
           "home",

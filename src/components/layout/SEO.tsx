@@ -1,8 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom"; // Import useLocation if using React Router
 
 interface SEOProps {
-  title: string;
+  title?: string;
   description: string;
   keywords?: string[];
   ogUrl?: string;
@@ -16,7 +17,15 @@ const SEO = ({
   ogUrl,
   noindex = false,
 }: SEOProps) => {
-  const fullTitle = `${title} | Abdamin International Limited`;
+  const location = useLocation(); // Get the current location
+  const defaultTitle = "Abdamin International Limited";
+
+  // Determine if the current path is the homepage
+  const isHomePage = location.pathname === "/";
+
+  // Set the full title based on the current page
+  const fullTitle = isHomePage ? defaultTitle : `${title} | ${defaultTitle}`;
+
   const defaultUrl = "https://abdamin.com/";
   const defaultUrlWithWww = "https://www.abdamin.com/";
 
@@ -28,7 +37,7 @@ const SEO = ({
       : defaultUrl);
 
   // Static OG image URL
-  const staticOgImageUrl = `${defaultUrl}images/og-default.png`;
+  const staticOgImageUrl = `${defaultUrl}images/og-image.webp`;
 
   return (
     <Helmet>
