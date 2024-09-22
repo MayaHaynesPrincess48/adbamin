@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Helmet } from "react-helmet-async";
-import { useLocation } from "react-router-dom"; // Import useLocation if using React Router
+import { useLocation } from "react-router-dom";
 import staticOgImage from "../../assets/images/og-image.png";
 
 interface SEOProps {
@@ -37,6 +37,9 @@ const SEO = ({
       ? defaultUrlWithWww
       : defaultUrl);
 
+  // Determine the canonical URL
+  const canonicalUrl = currentUrl.replace("www.", "");
+
   return (
     <Helmet>
       {/* Primary Meta Tags */}
@@ -52,23 +55,43 @@ const SEO = ({
       />
 
       {/* Canonical URL - always use the non-www version for consistency */}
-      <link rel="canonical" href={currentUrl.replace("www.", "")} />
+      <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={currentUrl} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={staticOgImage} />
-      <meta property="og:image:alt" content={description} />
+      <meta property="og:type" name="og:type" content="website" />
+      <meta property="og:url" name="og:url" content={currentUrl} />
+      <meta property="og:title" name="og:title" content={fullTitle} />
+      <meta
+        property="og:description"
+        name="og:description"
+        content={description}
+      />
+      <meta property="og:image" name="og:image" content={staticOgImage} />
+      <meta property="og:image:alt" name="og:image:alt" content={description} />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={currentUrl} />
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={staticOgImage} />
-      <meta property="twitter:image:alt" content={description} />
+      <meta
+        property="twitter:card"
+        name="twitter:card"
+        content="summary_large_image"
+      />
+      <meta property="twitter:url" name="twitter:url" content={currentUrl} />
+      <meta property="twitter:title" name="twitter:title" content={fullTitle} />
+      <meta
+        property="twitter:description"
+        name="twitter:description"
+        content={description}
+      />
+      <meta
+        property="twitter:image"
+        name="twitter:image"
+        content={staticOgImage}
+      />
+      <meta
+        property="twitter:image:alt"
+        name="twitter:image:alt"
+        content={description}
+      />
     </Helmet>
   );
 };
