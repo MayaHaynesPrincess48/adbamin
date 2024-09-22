@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import staticOgImage from "../../assets/images/og-image.png";
 
+// Define the props interface for the SEO component
 interface SEOProps {
   title?: string;
   description: string;
@@ -18,27 +19,33 @@ const SEO = ({
   ogUrl,
   noindex = false,
 }: SEOProps) => {
-  const location = useLocation(); // Get the current location
+  // Get the current location using React Router's useLocation hook
+  const location = useLocation();
+
+  // Define default title and construct full title
   const defaultTitle = "Abdamin International Limited";
-
-  // Determine if the current path is the homepage
   const isHomePage = location.pathname === "/";
-
-  // Set the full title based on the current page
   const fullTitle = isHomePage ? defaultTitle : `${title} | ${defaultTitle}`;
 
+  // Define default URLs
   const defaultUrl = "https://abdamin.com/";
   const defaultUrlWithWww = "https://www.abdamin.com/";
 
-  // Determine the current URL
+  // Determine the current URL, preferring the provided ogUrl if available
   const currentUrl =
     ogUrl ||
     (typeof window !== "undefined" && window.location.href.includes("www")
       ? defaultUrlWithWww
       : defaultUrl);
 
-  // Determine the canonical URL
+  // Create canonical URL (always non-www version)
   const canonicalUrl = currentUrl.replace("www.", "");
+
+  // Ensure full URL for image, working in both client-side and server-side contexts
+  const fullImageUrl = new URL(
+    staticOgImage,
+    typeof window !== "undefined" ? window.location.origin : defaultUrl,
+  ).toString();
 
   return (
     <Helmet>
@@ -46,52 +53,38 @@ const SEO = ({
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
+      {/* Include keywords meta tag if keywords are provided */}
       {keywords && <meta name="keywords" content={keywords.join(", ")} />}
 
-      {/* Robots meta tag */}
+      {/* Robots meta tag - control indexing and following */}
       <meta
         name="robots"
         content={noindex ? "noindex, nofollow" : "index, follow"}
       />
 
-      {/* Canonical URL - always use the non-www version for consistency */}
+      {/* Canonical URL - helps prevent duplicate content issues */}
       <link rel="canonical" href={canonicalUrl} />
 
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" name="og:type" content="website" />
-      <meta property="og:url" name="og:url" content={currentUrl} />
-      <meta property="og:title" name="og:title" content={fullTitle} />
-      <meta
-        property="og:description"
-        name="og:description"
-        content={description}
-      />
-      <meta property="og:image" name="og:image" content={staticOgImage} />
-      <meta property="og:image:alt" name="og:image:alt" content={description} />
+      {/* Open Graph / Facebook meta tags */}
+      {/* These tags optimize how the page appears when shared on Facebook and other platforms that support Open Graph */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={currentUrl} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={fullImageUrl} />
+      <meta property="og:image:alt" content={description} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
 
-      {/* Twitter */}
-      <meta
-        property="twitter:card"
-        name="twitter:card"
-        content="summary_large_image"
-      />
-      <meta property="twitter:url" name="twitter:url" content={currentUrl} />
-      <meta property="twitter:title" name="twitter:title" content={fullTitle} />
-      <meta
-        property="twitter:description"
-        name="twitter:description"
-        content={description}
-      />
-      <meta
-        property="twitter:image"
-        name="twitter:image"
-        content={staticOgImage}
-      />
-      <meta
-        property="twitter:image:alt"
-        name="twitter:image:alt"
-        content={description}
-      />
+      {/* Twitter Card meta tags */}
+      {/* These tags optimize how the page appears when shared on Twitter */}
+      {/* Note: twitter:site and twitter:creator tags are omitted as there's no official Twitter account */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={currentUrl} />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={fullImageUrl} />
+      <meta name="twitter:image:alt" content={description} />
     </Helmet>
   );
 };
