@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom"; // Import useLocation if using React Router
-import staticOgImage from "../../assets/images/og-image.webp";
+import staticOgImage from "../../assets/images/og-image.png";
 
 interface SEOProps {
   title?: string;
