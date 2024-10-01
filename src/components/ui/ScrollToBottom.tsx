@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowDown2 } from "iconsax-react";
-import smoothscroll from "smoothscroll-polyfill";
-
-// Add smoothscroll polyfill for browsers
-smoothscroll.polyfill();
+import { motion } from "framer-motion";
 
 const ScrollToBottomButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,7 +33,10 @@ const ScrollToBottomButton = () => {
   }, []);
 
   return (
-    <button
+    <motion.button
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
+      transition={{ duration: 0.5 }}
       type="button"
       onClick={scrollToNextViewport}
       className={`fixed bottom-4 left-1/2 -translate-x-1/2 transform rounded-full p-3 text-white transition-all duration-300 ${
@@ -52,7 +52,7 @@ const ScrollToBottomButton = () => {
         aria-hidden="true"
       />
       <span className="sr-only">Scroll to next section</span>
-    </button>
+    </motion.button>
   );
 };
 

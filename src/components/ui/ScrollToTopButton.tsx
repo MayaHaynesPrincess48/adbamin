@@ -1,9 +1,6 @@
 import { ArrowUp } from "iconsax-react";
 import { useState, useEffect } from "react";
-import smoothscroll from "smoothscroll-polyfill";
-
-// Add smoothscroll polyfill for browsers
-smoothscroll.polyfill();
+import { motion } from "framer-motion";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,7 +35,10 @@ const ScrollToTopButton = () => {
   }, []);
 
   return (
-    <button
+    <motion.button
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
+      transition={{ duration: 0.5 }}
       type="button"
       onClick={scrollToTop}
       className={`fixed bottom-8 right-4 z-50 rounded-full bg-primary-base p-2 text-white shadow-lg transition-all duration-300 hover:bg-primary-60 focus:outline-none focus:ring-2 focus:ring-primary-60 focus:ring-offset-2 sm:p-3 ${
@@ -51,7 +51,7 @@ const ScrollToTopButton = () => {
     >
       <ArrowUp size="20" color="#fff" aria-hidden="true" />
       <span className="sr-only">Scroll to top of page</span>
-    </button>
+    </motion.button>
   );
 };
 
