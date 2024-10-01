@@ -1,6 +1,5 @@
-import { ArrowUp } from "iconsax-react";
+import { ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,10 +13,14 @@ const ScrollToTopButton = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    const scrollStep = -window.scrollY / (500 / 15); // Adjust 500 to control speed
+    const scrollInterval = setInterval(() => {
+      if (window.scrollY !== 0) {
+        window.scrollBy(0, scrollStep);
+      } else {
+        clearInterval(scrollInterval);
+      }
+    }, 15);
   };
 
   useEffect(() => {
@@ -35,10 +38,7 @@ const ScrollToTopButton = () => {
   }, []);
 
   return (
-    <motion.button
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
-      transition={{ duration: 0.5 }}
+    <button
       type="button"
       onClick={scrollToTop}
       className={`fixed bottom-8 right-4 z-50 rounded-full bg-primary-base p-2 text-white shadow-lg transition-all duration-300 hover:bg-primary-60 focus:outline-none focus:ring-2 focus:ring-primary-60 focus:ring-offset-2 sm:p-3 ${
@@ -51,7 +51,7 @@ const ScrollToTopButton = () => {
     >
       <ArrowUp size="20" color="#fff" aria-hidden="true" />
       <span className="sr-only">Scroll to top of page</span>
-    </motion.button>
+    </button>
   );
 };
 

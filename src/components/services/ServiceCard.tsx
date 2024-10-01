@@ -9,35 +9,34 @@ type ServiceCardProps = {
 
 const ServiceCard = ({ title, description, image, link }: ServiceCardProps) => {
   return (
-    <div className="group relative overflow-hidden rounded-xl shadow-lg">
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
-        style={{ backgroundImage: `url(${image})` }}
-        aria-hidden="true"
-      />
-      <div className="relative flex h-[350px] flex-col justify-end p-6 md:h-[404px]">
-        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90"></div>
+    <Link
+      to={link}
+      className="group relative block overflow-hidden rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-secondary-base focus:ring-offset-2"
+      aria-label={`${title}: ${description}. Learn more about this service.`}
+    >
+      <div className="relative">
         <div
-          className="relative mb-2 text-xl font-bold text-white"
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110 group-focus:scale-110"
+          style={{ backgroundImage: `url(${image})` }}
           aria-hidden="true"
-        >
-          {title}
-        </div>
-        <p className="relative mb-4 text-white">{description}</p>
-        <div className="relative flex items-center text-white">
-          <Link
-            to={link}
-            className="flex items-center transition-all duration-300 hover:text-[#D02A10] focus:outline-none focus:ring-2 focus:ring-[#D02A10] focus:ring-offset-2"
-            aria-label={`${title}: ${description}. Learn more about this service.`}
-          >
-            <span className="mr-2">Learn more</span>
+        />
+        <div className="relative flex h-[350px] flex-col justify-end p-6 md:h-[404px]">
+          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90"></div>
+          <h2 className="relative mb-2 text-xl font-bold text-white">
+            {title}
+          </h2>
+          <p className="relative mb-4 text-white">{description}</p>
+          <div className="relative flex items-center text-white">
+            <span className="mr-2 transition-all duration-300 group-hover:text-secondary-base group-focus:text-secondary-base">
+              Learn more
+            </span>
             <svg
               width="32"
               height="32"
               viewBox="0 0 32 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="h-[32px] w-[32px] transition-transform duration-300 group-hover:translate-x-1"
+              className="h-[32px] w-[32px] transition-transform duration-300 group-hover:translate-x-1 group-focus:translate-x-1"
               aria-hidden="true"
             >
               <g clipPath="url(#clip0_252_400)">
@@ -60,10 +59,10 @@ const ServiceCard = ({ title, description, image, link }: ServiceCardProps) => {
                 </clipPath>
               </defs>
             </svg>
-          </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

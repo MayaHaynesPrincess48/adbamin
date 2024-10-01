@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowDown2 } from "iconsax-react";
-import { motion } from "framer-motion";
+import { ArrowCircleDown } from "iconsax-react";
 
 const ScrollToBottomButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,24 +18,34 @@ const ScrollToBottomButton = () => {
   };
 
   const scrollToNextViewport = () => {
-    window.scrollBy({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
+    const targetScroll = window.scrollY + window.innerHeight;
+    const scrollStep = (targetScroll - window.scrollY) / (500 / 15); // Adjust 500 to control speed
+
+    const scrollInterval = setInterval(() => {
+      if (window.scrollY < targetScroll) {
+        window.scrollBy(0, scrollStep);
+      } else {
+        clearInterval(scrollInterval);
+      }
+    }, 15);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    const handleScroll = () => {
+      // Debounce the scroll event
+      setTimeout(() => {
+        toggleVisibility();
+      }, 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <motion.button
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
-      transition={{ duration: 0.5 }}
+    <button
       type="button"
       onClick={scrollToNextViewport}
       className={`fixed bottom-4 left-1/2 -translate-x-1/2 transform rounded-full p-3 text-white transition-all duration-300 ${
@@ -45,14 +54,14 @@ const ScrollToBottomButton = () => {
       aria-label="Scroll to next section"
       tabIndex={isVisible ? 0 : -1}
     >
-      <ArrowDown2
+      <ArrowCircleDown
         size="40"
         color="#D02A10"
         className="animate-bounce"
         aria-hidden="true"
       />
       <span className="sr-only">Scroll to next section</span>
-    </motion.button>
+    </button>
   );
 };
 

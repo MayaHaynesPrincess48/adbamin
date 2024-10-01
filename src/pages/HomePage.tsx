@@ -39,7 +39,7 @@ const HomePage: React.FC = () => {
         subtitle="We are Abdamin, we deliver innovative and creative solutions via strategic partnerships to meet the needs of our customers and to provide an unparalleled level of service."
         backgroundImage={landing}
         link="/about-us"
-        className="h-[650px] bg-cover bg-left sm:bg-center md:h-[750px] lg:h-[950px] xl:h-[850px]"
+        className="h-[650px] bg-cover bg-left sm:bg-center md:h-[750px]"
         text="Learn More"
       />
       <AnimatedSection>

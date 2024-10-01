@@ -43,7 +43,7 @@ const Hero = ({ title, ...props }: HeroProps) => {
       >
         {!imageLoaded && (
           <div
-            className="absolute inset-0 animate-gradient-x bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300"
+            className="absolute inset-0 animate-pulse bg-primary-base bg-cover bg-center opacity-40"
             aria-hidden="true"
           />
         )}
