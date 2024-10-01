@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import { ArrowDown2 } from "iconsax-react";
+import smoothscroll from "smoothscroll-polyfill";
+
+// Add smoothscroll polyfill for browsers
+smoothscroll.polyfill();
 
 const ScrollToBottomButton = () => {
   const [isVisible, setIsVisible] = useState(false);

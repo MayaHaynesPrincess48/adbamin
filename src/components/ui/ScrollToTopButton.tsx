@@ -1,5 +1,9 @@
 import { ArrowUp } from "iconsax-react";
 import { useState, useEffect } from "react";
+import smoothscroll from "smoothscroll-polyfill";
+
+// Add smoothscroll polyfill for browsers
+smoothscroll.polyfill();
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
