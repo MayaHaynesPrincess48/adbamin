@@ -10,12 +10,8 @@
     "jsx": "react",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*"]
-    }
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*", "emails/**/*", "**/*.ts", "**/*.tsx"],
+  "include": ["src/**/*", "emails/**/*"],
   "exclude": ["node_modules", "dist"]
 }

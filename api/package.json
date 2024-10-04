@@ -1,21 +1,15 @@
 {
-  "name": "server",
+  "name": "abdamin-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API for ABdamin",
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server:build": "cd server && npm run build",
-    "server:start": "cd server && npm start",
-    "server:dev": "cd server && npm run dev",
     "email": "email dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@react-email/components": "^0.0.25",
     "@react-email/render": "^1.0.1",
@@ -32,8 +26,6 @@
     "@types/node": "^18.15.11",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.8.0",
-    "@typescript-eslint/parser": "^8.8.0",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
