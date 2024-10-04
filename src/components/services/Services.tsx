@@ -11,8 +11,8 @@ const Services = () => {
         title="Services"
         subtitle="Services that Embody Our Values and Excellence"
         description="Abdamin, since its incorporation in November 2000, has been engaged in various
-        businesses or divisions, Construction, Transportation, Telecoms,
-        Consults, and Energy."
+        businesses or divisions, Construction, Transportation, Telecoms, Water,
+         and Consults."
       />
       <ServicesGrid />
     </section>

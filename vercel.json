@@ -1,3 +1,14 @@
 {
-  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
+  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }],
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/server/dist/server.js" }
+  ],
+  "builds": [
+    { "src": "server/src/server.ts", "use": "@vercel/node" },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ]
 }

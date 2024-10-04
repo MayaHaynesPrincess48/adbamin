@@ -55,7 +55,7 @@ export const projects: Project[] = [
     seoDescription:
       "Construction of two 3-bedroom bungalows for Nigerian Army personnel at Dutse Barracks, enhancing living conditions for military families.",
     description:
-      "Abdamin International Limited successfully completed the construction of two 3-bedroom bungalows at the Nigerian Army Barracks in Dutse, Jigawa State. This project was part of a broader initiative to improve the living conditions of military personnel and their families, providing them with comfortable and modern housing within the barracks...",
+      "Abdamin International Limited successfully completed the construction of two 3-bedroom bungalows at the Nigerian Army Barracks in Dutse, Jigawa State. This project was part of a broader initiative to improve the living conditions of military personnel and their families, providing them with comfortable and modern housing within the barracks.",
     location: "Dutse, Jigawa",
     date: "2024",
     service: "Construction",

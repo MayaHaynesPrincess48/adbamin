@@ -2,18 +2,18 @@ import { useState, useEffect } from "react";
 import { ArrowCircleDown } from "iconsax-react";
 
 const ScrollToBottomButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const toggleVisibility = () => {
-    if (
-      window.scrollY <
-      document.documentElement.scrollHeight -
-        window.innerHeight -
-        window.innerHeight / 2.5
-    ) {
-      setIsVisible(true);
-    } else {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Hide the button when we're close to the bottom of the page
+    if (scrollPosition + windowHeight > documentHeight - windowHeight / 2.5) {
       setIsVisible(false);
+    } else {
+      setIsVisible(true);
     }
   };
 
@@ -39,6 +39,10 @@ const ScrollToBottomButton = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+
+    // Check visibility on mount
+    toggleVisibility();
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

@@ -12,7 +12,7 @@ const StatisticsSection: React.FC = () => {
       <HeadingSection
         title="company"
         subtitle="Our Legacy of Excellence"
-        description="Abdamin International Limited is a limited liability company fully registered and incorporated in Nigeria with its head office in Yola, Adamawa State with several business offices in Abuja, kaduna and Lagos."
+        description="Abdamin International Limited is a limited liability company fully registered and incorporated in Nigeria with its head office in Yola, Adamawa State with several business offices in Abuja, Kaduna and Lagos."
       />
       <StatsAndFeatures />
       <NavLink
