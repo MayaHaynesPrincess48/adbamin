@@ -1,7 +1,7 @@
 {
   "name": "abdamin-api",
   "version": "1.0.0",
-  "description": "API for ABdamin",
+  "description": "Email API for Abdamin",
   "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",

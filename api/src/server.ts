@@ -46,7 +46,7 @@ app.post(
 
       // Send the email using Resend
       const data = await resend.emails.send({
-        from: "onboarding@resend.dev", // Change this to your verified domain once set up
+        from: "noreply@abdamin.com",
         to: "hassanhauda@gmail.com", // Your receiving email address
         reply_to: email, // Set reply-to as the sender's email
         subject: "New Contact Form Submission from Abdamin’s Website",

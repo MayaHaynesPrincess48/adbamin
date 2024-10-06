@@ -43,7 +43,7 @@ const Hero = ({ title, ...props }: HeroProps) => {
       >
         {!imageLoaded && (
           <div
-            className="absolute inset-0 animate-pulse bg-primary-base bg-cover bg-center opacity-40"
+            className="absolute inset-0 animate-pulse bg-gray-200 bg-cover bg-center"
             aria-hidden="true"
           />
         )}
