@@ -19,6 +19,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // Parse JSON request bodies
 
+// Add this health check endpoint
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 // Define the structure of the email request
 interface EmailRequest {
   name: string;
