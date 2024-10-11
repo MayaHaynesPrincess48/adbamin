@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import cors from "cors";
 import dotenv from "dotenv";
 import { render } from "@react-email/render";
-import ContactFormEmail from "../emails/ContactFormEmail";
+import ContactFormEmail from "./emails/ContactFormEmail";
 
 // Load environment variables
 dotenv.config();

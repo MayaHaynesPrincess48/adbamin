@@ -4,11 +4,10 @@
   "description": "Email API for Abdamin",
   "main": "dist/server.js",
   "scripts": {
-    "start": "node ./dist/server.js",
+    "start": "node dist/server.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
-    "build": "tsc && ls dist",
+    "build": "tsc && ls -R dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "email": "email dev",
     "postinstall": "npm run build"
   },
   "dependencies": {
