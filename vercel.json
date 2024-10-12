@@ -14,7 +14,7 @@
   "rewrites": [
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/"
     },
     {
       "src": "/api/(.*)",
