@@ -13,12 +13,12 @@
   ],
   "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/"
+      "source": "/(.*)",
+      "destination": "/"
     },
     {
-      "src": "/api/(.*)",
-      "dest": "/src/server.ts"
+      "source": "/api/(.*)",
+      "destination": "/src/server.ts"
     }
   ]
 }
