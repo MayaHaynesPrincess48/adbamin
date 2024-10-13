@@ -5,11 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && tsc --project api/tsconfig.json",
+    "build": "tsc -b && vite build",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix",
-    "preview": "vite preview",
-    "start": "vercel dev"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
