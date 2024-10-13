@@ -26,8 +26,8 @@ const GetInTouch: React.FC = () => {
       <AnimatedSection>
         <section className="mx-auto flex max-w-8xl flex-col gap-16 px-4 pb-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-8">
-            <ContactDetails className="order-1 md:order-2" />
-            <ContactForm className="order-2 md:order-1" />
+            <ContactDetails className="order-2" />
+            <ContactForm className="order-1" />
           </div>
         </section>
       </AnimatedSection>

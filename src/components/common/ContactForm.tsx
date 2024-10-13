@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import { AlertCircle, X, CheckCircle } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { RefreshCw } from "lucide-react";
+import Toast from "../ui/Toast";
 import config from "../../utils/config";
 
 interface ContactFormProps {
@@ -22,20 +22,13 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
+  const [toastVisible, setToastVisible] = useState(false);
   const [toast, setToast] = useState<{
     type: "success" | "error";
     message: string;
   } | null>(null);
 
-  useEffect(() => {
-    if (toast) {
-      const timer = setTimeout(() => {
-        setToast(null);
-      }, 6000);
-      return () => clearTimeout(timer);
-    }
-  }, [toast]);
-
+  // Form validation
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
     if (!name.trim()) newErrors.name = "Name is required";
@@ -51,6 +44,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
     return Object.keys(newErrors).length === 0;
   };
 
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) {
@@ -58,11 +52,13 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
         type: "error",
         message: "Please fill in all required fields correctly.",
       });
+      setToastVisible(true);
       return;
     }
 
     setIsSubmitting(true);
     setToast(null);
+    setToastVisible(false);
 
     try {
       const response = await fetch(`${config.apiUrl}/send-email`, {
@@ -101,48 +97,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
     }
   };
 
-  const closeToast = () => setToast(null);
-
   return (
-    <div className="relative">
-      <AnimatePresence>
-        {toast && (
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className={`fixed right-4 top-4 z-50 w-full max-w-sm transform rounded-lg p-4 shadow-lg transition-all duration-500 ease-in-out ${
-              toast.type === "success"
-                ? "bg-green-50 text-green-800"
-                : "bg-red-50 text-red-800"
-            }`}
-          >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                {toast.type === "success" ? (
-                  <CheckCircle className="mr-2 h-5 w-5 text-green-400" />
-                ) : (
-                  <AlertCircle className="mr-2 h-5 w-5 text-red-400" />
-                )}
-                <span className="text-sm font-medium">{toast.message}</span>
-              </div>
-              <button
-                onClick={closeToast}
-                className={`ml-4 inline-flex rounded-md p-1.5 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                  toast.type === "success"
-                    ? "bg-green-50 text-green-500 hover:bg-green-100 focus:ring-green-600"
-                    : "bg-red-50 text-red-500 hover:bg-red-100 focus:ring-red-600"
-                }`}
-              >
-                <X className="h-5 w-5" />
-                <span className="sr-only">Close</span>
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
+    <>
+      {toast && (
+        <Toast
+          type={toast.type}
+          message={toast.message}
+          onClose={() => setToastVisible(false)}
+          isVisible={toastVisible}
+          duration={5000}
+        />
+      )}
       <form
         onSubmit={handleSubmit}
         className={clsx(
@@ -235,13 +200,20 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
         </div>
         <button
           type="submit"
-          className="btn btn-primary w-full"
+          className="btn btn-primary w-full disabled:opacity-50"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Submitting..." : "Send message"}
+          {isSubmitting ? (
+            <div className="flex items-center justify-center">
+              <RefreshCw className="mr-2 h-5 w-5 animate-spin" />
+              <span>Submitting...</span>
+            </div>
+          ) : (
+            <span>Send Message</span>
+          )}
         </button>
       </form>
-    </div>
+    </>
   );
 };
 

@@ -26,5 +26,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "api", "server/emails", "server/src/renderEmail.ts"]
+  "include": ["src", "api"]
 }
