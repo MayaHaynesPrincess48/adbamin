@@ -22,7 +22,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [toastVisible, setToastVisible] = useState(false);
   const [toast, setToast] = useState<{
     type: "success" | "error";
     message: string;
@@ -44,6 +43,33 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
     return Object.keys(newErrors).length === 0;
   };
 
+  // Handle input changes
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    name: "name" | "email" | "subject" | "message",
+  ) => {
+    const { value } = e.target;
+    switch (name) {
+      case "name":
+        setName(value);
+        break;
+      case "email":
+        setEmail(value);
+        break;
+      case "subject":
+        setSubject(value);
+        break;
+      case "message":
+        setMessage(value);
+        break;
+      default:
+        break;
+    }
+
+    // Clear error for the changed input
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: undefined }));
+  };
+
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,13 +78,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
         type: "error",
         message: "Please fill in all required fields correctly.",
       });
-      setToastVisible(true);
       return;
     }
 
     setIsSubmitting(true);
     setToast(null);
-    setToastVisible(false);
 
     try {
       const response = await fetch(`${config.apiUrl}/send-email`, {
@@ -81,10 +105,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
         setMessage("");
         setErrors({});
       } else {
-        setToast({
-          type: "error",
-          message: "An error occurred. Please try again later.",
-        });
+        throw new Error("Server responded with an error");
       }
     } catch (error) {
       console.error(error);
@@ -103,8 +124,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
         <Toast
           type={toast.type}
           message={toast.message}
-          onClose={() => setToastVisible(false)}
-          isVisible={toastVisible}
+          onClose={() => setToast(null)}
+          isVisible={!!toast}
           duration={5000}
         />
       )}
@@ -126,7 +147,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             type="text"
             id="name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => handleInputChange(e, "name")}
             placeholder="Name"
             className={`h-[52px] w-full rounded-3xl border border-solid ${
               errors.name ? "border-red-500" : "border-neutral-10"
@@ -147,7 +168,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             type="email"
             id="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => handleInputChange(e, "email")}
             placeholder="you@company.com"
             className={`h-[52px] w-full rounded-3xl border border-solid ${
               errors.email ? "border-red-500" : "border-neutral-10"
@@ -168,7 +189,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             type="text"
             id="subject"
             value={subject}
-            onChange={(e) => setSubject(e.target.value)}
+            onChange={(e) => handleInputChange(e, "subject")}
             placeholder="Subject"
             className={`h-[52px] w-full rounded-3xl border border-solid ${
               errors.subject ? "border-red-500" : "border-neutral-10"
@@ -188,7 +209,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
           <textarea
             id="message"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => handleInputChange(e, "message")}
             placeholder="Leave us a message..."
             className={`h-[151px] w-full rounded-3xl border border-solid ${
               errors.message ? "border-red-500" : "border-neutral-10"
