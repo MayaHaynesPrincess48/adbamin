@@ -3,7 +3,6 @@
     "target": "es6",
     "module": "commonjs",
     "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
@@ -12,6 +11,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*", "src/emails/**/*"],
+  "include": ["src/**/*", "src/emails/**/*", "./api/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
