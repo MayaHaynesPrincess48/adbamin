@@ -57,7 +57,7 @@ app.post(
       // Send the email using Resend
       const data = await resend.emails.send({
         from: "noreply@abdamin.com",
-        to: "hassanhauda@gmail.com", // Your receiving email address
+        to: "abdaminltd@gmail.com", // Your receiving email address
         reply_to: email, // Set reply-to as the sender's email
         subject: "New Contact Form Submission from Abdamin's Website",
         html: emailHtml,
