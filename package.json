@@ -10,6 +10,15 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix",
     "preview": "vite preview"
   },
+  "keywords": [
+    "abdamin"
+  ],
+  "author": {
+    "name": "Hassan Umar Hassan",
+    "email": "hassanhauda@gmail.com",
+    "url": "https://github.com/NabsCodes"
+  },
+  "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",

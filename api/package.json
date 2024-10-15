@@ -11,6 +11,11 @@
     "postinstall": "npm run build",
     "vercel-build": "echo 'Skipping build...'"
   },
+  "keywords": [
+    "abdamin",
+    "api"
+  ],
+  "license": "ISC",
   "dependencies": {
     "@react-email/components": "^0.0.25",
     "@react-email/render": "^1.0.1",
