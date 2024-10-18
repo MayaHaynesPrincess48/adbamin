@@ -7,9 +7,9 @@ import { CloseIcon, MenuIcon } from "../../components/ui/SvgIcons";
 import { navItems, socialLinks, copyRight, navInfo } from "../../utils/data";
 import { useMenu } from "../../context/MenuContext";
 import useClickOutside from "../../hooks/useClickOutside";
-import clsx from "clsx";
 import StaggeredDropDown from "../ui/StaggeredDropdown";
 import MobileMenu from "./MobileMenu";
+import { cn } from "@/lib/utils";
 
 const Navbar: React.FC = () => {
   const { isMenuOpen, setIsMenuOpen } = useMenu();
@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav
-        className={clsx("sticky top-0 z-40 transition-all duration-300", {
+        className={cn("sticky top-0 z-40 transition-all duration-300", {
           "backdrop-blur-lg": isScrolled,
           "bg-neutral-10/50": isScrolled,
         })}
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className={clsx("md:hidden", {
+            className={cn("md:hidden", {
               hidden: isMenuOpen,
               block: !isMenuOpen,
             })}

@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../../components/layout/Hero";
-import clsx from "clsx";
 import AnimatedSection from "@/components/layout/AnimatedSection";
+import { cn } from "@/lib/utils";
 
 // Define the structure for each service section
 interface ServiceSection {
@@ -30,7 +30,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
         titleClassName="mt-[85px] md:mt-[110px] hidden"
         backgroundImage={heroImage}
         linkClassName="btn-hidden-all"
-        className={clsx("h-[540px] bg-cover md:h-[650px]", heroClassName)}
+        className={cn("h-[540px] bg-cover md:h-[650px]", heroClassName)}
       />
 
       {/* Main content section */}
