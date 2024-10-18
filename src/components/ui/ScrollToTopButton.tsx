@@ -1,15 +1,33 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  const toggleVisibility = () => {
-    if (window.scrollY > window.innerHeight) {
-      setIsVisible(true);
+  const controlButton = () => {
+    const currentScrollY = window.scrollY;
+    const threshold = window.innerHeight * 0.5; // Lowered threshold
+
+    if (currentScrollY > threshold) {
+      if (
+        currentScrollY < lastScrollY ||
+        currentScrollY + window.innerHeight >=
+          document.documentElement.scrollHeight
+      ) {
+        // Scrolling up or reached bottom of page
+        setIsVisible(true);
+      } else {
+        // Scrolling down
+        setIsVisible(false);
+      }
     } else {
+      // Below the threshold
       setIsVisible(false);
     }
+
+    setLastScrollY(currentScrollY);
   };
 
   const scrollToTop = () => {
@@ -24,18 +42,11 @@ const ScrollToTopButton = () => {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Debounce the scroll event
-      setTimeout(() => {
-        toggleVisibility();
-      }, 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", controlButton);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", controlButton);
     };
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <button
